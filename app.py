@@ -68,16 +68,16 @@ def callback_handling():
     return redirect('/dashboard')
 
 
-# /server.py
+
 
 @app.route('/login')
 def login():
-    return auth0.authorize_redirect(redirect_uri='http://localhost:3000/callback')
+    return auth0.authorize_redirect(redirect_uri='http://localhost:5000/callback')
 
 
 
 
-# /server.py
+
 
 @app.route('/dashboard')
 @requires_auth
@@ -86,7 +86,7 @@ def dashboard():
                            userinfo=session['profile'],
                            userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))
 
-# /server.py
+
 
 @app.route('/logout')
 def logout():
